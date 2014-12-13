@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 set -e
+#set -x
 
 
 help()
@@ -33,8 +34,9 @@ list()
 
 github()
 {
-  test -d bundle/$plugin_dir || git clone https://github.com/$p2.git bundle/$plugin_dir
-  source bundle/$plugin_dir/*.plugin.zsh
+  plugin_dir_bundle="bundle/$plugin_dir"
+  test -d bundle/$plugin_dir || git clone https://github.com/$plugin.git $plugin_dir_bundle
+  test -d $plugin_dir_bundle && source $plugin_dir_bundle/*.plugin.zsh
 }
 
 oh-my-zsh()
