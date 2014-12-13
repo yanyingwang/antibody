@@ -52,6 +52,9 @@ github()
 
 oh-my-zsh()
 {
+  export ZSH=$PWD/bundle/oh-my-zsh
+  source $ZSH/oh-my-zsh.sh
+
   plugin_dir_oh="bundle/oh-my-zsh/Plugins"
   theme_dir_oh="bundle/oh-my-zsh/themes"
 
@@ -60,6 +63,7 @@ oh-my-zsh()
   if [[ $plugin = "theme" ]]
   then
     source $theme_dir_oh/$theme.zsh-theme
+    ZSH_THEME=$theme
     return
   fi
 
