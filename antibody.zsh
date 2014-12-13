@@ -2,18 +2,32 @@
 
 set -e
 
-#antibody list
-#antibody use github yanyingwang/waga
-#antibody use oh-my-zsh 
 
+help()
+{
+  echo ""
+  echo $fg[green]"Help:"
+  echo " |"
+  echo " |-  antibody list"
+  echo " |-  antibody use github yanyingwang/waga"
+  echo " |-  antibody use oh-my-zsh"
+  echo ""
+  echo ""
+}
 
 list()
 {
-  echo $fg[green]"Plugins: \n\n"
+  echo ""
+  echo $fg[green]"Plugins:"
+  echo " |"
+
   for d in $(ls bundle/)
   do
-    echo "---: ${d/#*bundle\/}"
+    echo " |- ${d/#*bundle\/}"
   done
+
+  echo ""
+  echo ""
 }
 
 
@@ -22,6 +36,7 @@ github()
   test -d bundle/$plugin_dir || git clone https://github.com/$p2.git bundle/$plugin_dir
   source bundle/$plugin_dir/*.plugin.zsh
 }
+
 oh-my-zsh()
 {
   test -d bundle/oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git bundle/oh-my-zsh
@@ -50,6 +65,9 @@ antibody()
   plugin=$3
 
   case $action in
+    help)
+      help
+      ;;
     list)
       list
       ;;
