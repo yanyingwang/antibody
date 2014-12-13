@@ -59,7 +59,7 @@ oh-my-zsh()
 
   if [[ $plugin = "theme" ]]
   then
-    source theme_dir_oh/$theme.zsh-theme
+    source $theme_dir_oh/$theme.zsh-theme
     return
   fi
 
