@@ -38,7 +38,7 @@ Just like Vim plugin managers, Antibody puts itself and other plugins into "bund
 
 Puts code below to zshrc file to auto clone Antibody for the first time.
 ```shell
-PWD=${0:a:h}
+cd ${0:a:h}
 
 # auto pull in antibody
 [[ ! -d bundle ]] && mkdir bundle
