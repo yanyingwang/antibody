@@ -51,15 +51,15 @@ Puts code below to zshrc file to get it working
 source bundle/antibody/antibody.zsh
 ```
 
-## Antibody cmd explain
+## Antibody CMD explain
 
-* help
+### help
 ```shell
 antibody help
 ```
 After `source antibody.zsh`, you can type `antibody help` in your terminal to view antibody manual.
 
-* github
+### github
 ```shell
 antibody github username/repo
 ```
@@ -72,12 +72,12 @@ For example, there is a zsh plugin waga, links is https://github.com/yanyingwang
 In this example, Antibody will source file `waga.zsh` in waga plugin. And if there is a 'test.plugin.zsh' or 'test.theme.zsh', Antibody will source it, too.
 
 
-* oh-my-zsh
+### oh-my-zsh
 You can use oh-my-zsh's themes and plugins.
 
 In the condition, Antibody will clone the whole oh-my-zsh repo to local bundle directory, but you can just use one plugin of it.
 
-* oh-my-zsh theme
+### oh-my-zsh theme
 ```shell
 antibody oh-my-zsh theme robbyrussell
 ```
@@ -85,7 +85,7 @@ antibody oh-my-zsh theme robbyrussell
 For example, I want to use 'robbyrussell' theme, just add code `antibody oh-my-zsh theme robbyrussel` to 'zshrc'.
 
 
-* oh-my-zsh plugin
+### oh-my-zsh plugin
 ```shell
 antibody oh-my-zsh git
 antibody oh-my-zsh git rails
