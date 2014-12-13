@@ -39,9 +39,9 @@ github()
   test -d bundle/$plugin_dir || git clone https://github.com/$plugin.git $plugin_dir_bundle
 
   files=(
-  $plugin_dir_bundle/${plugin#*\/}.zsh
-  $plugin_dir_bundle/*.plugin.zsh
-  $plugin_dir_bundle/*.theme.zsh
+  "$plugin_dir_bundle/${plugin#*\/}.zsh"
+  "$plugin_dir_bundle/*.plugin.zsh"
+  "$plugin_dir_bundle/*.theme.zsh"
   )
 
   for f in $files[@]
