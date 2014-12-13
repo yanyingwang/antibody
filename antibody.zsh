@@ -88,9 +88,6 @@ antibody()
   plugin_dir=${action}-${plugin/\//-}
 
   case $action in
-    help)
-      help
-      ;;
     list)
       list
       ;;
@@ -99,6 +96,9 @@ antibody()
       ;;
     oh-my-zsh)
       oh-my-zsh
+      ;;
+    *)
+      help
       ;;
   esac
 }
