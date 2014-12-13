@@ -12,6 +12,7 @@ help()
   echo " |-  antibody list"
   echo " |-  antibody github github-usename/repo-name"
   echo " |-  antibody oh-my-zsh plugin-name"
+  echo " |-  antibody oh-my-zsh theme theme_name"
   echo ""
   echo ""
 }
@@ -41,8 +42,17 @@ github()
 
 oh-my-zsh()
 {
+  plugin_dir_oh="bundle/oh-my-zsh/Plugins"
+  theme_dir_oh="bundle/oh-my-zsh/themes"
+
   test -d bundle/oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git bundle/oh-my-zsh
-  source bundle/oh-my-zsh/plugins/$plugin/*.plugin.zsh
+
+  if [[ $plugin = "theme" ]]
+  then
+    source theme_dir_oh/$theme.zsh-theme
+  else
+    source bundle/oh-my-zsh/plugins/$plugin/*.plugin.zsh
+  fi
 }
 
 
@@ -51,6 +61,7 @@ antibody()
   PWD=${${0:a:h}%bundle*}
   action=$1
   plugin=$2
+  theme=$3
   plugin_dir=${action}-${plugin/\//-}
 
   case $action in
@@ -68,6 +79,5 @@ antibody()
       ;;
   esac
 }
-
 
 
