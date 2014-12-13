@@ -10,8 +10,8 @@ help()
   echo $fg[green]"Help:"
   echo " |"
   echo " |-  antibody list"
-  echo " |-  antibody use github yanyingwang/waga"
-  echo " |-  antibody use oh-my-zsh"
+  echo " |-  antibody github github-usename/repo-name"
+  echo " |-  antibody oh-my-zsh plugin-name"
   echo ""
   echo ""
 }
@@ -45,26 +45,13 @@ oh-my-zsh()
   source bundle/oh-my-zsh/plugins/$plugin/*.plugin.zsh
 }
 
-use()
-{
-  plugin_dir=${endpoint}-${plugin/\//-}
-
-  if [[ $endpoint = 'github' ]]
-  then
-    github
-  elif [[ $endpoint = 'oh-my-zsh' ]]
-  then
-    oh-my-zsh
-  fi
-}
-
 
 antibody()
 {
   PWD=${${0:a:h}%bundle*}
   action=$1
-  endpoint=$2
-  plugin=$3
+  plugin=$2
+  plugin_dir=${action}-${plugin/\//-}
 
   case $action in
     help)
@@ -73,12 +60,14 @@ antibody()
     list)
       list
       ;;
-    use)
-      use
+    github)
+      github
+      ;;
+    oh-my-zsh)
+      oh-my-zsh
       ;;
   esac
 }
-
 
 
 
