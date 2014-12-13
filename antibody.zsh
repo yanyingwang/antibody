@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+#set -e
 #set -x
 
 
