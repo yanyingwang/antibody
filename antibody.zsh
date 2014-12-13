@@ -60,6 +60,15 @@ oh-my-zsh()
   if [[ $plugin = "theme" ]]
   then
     source theme_dir_oh/$theme.zsh-theme
+    return
+  fi
+
+  if [[ $# > 3 ]]
+  then
+    for p in $@[3,$#]
+    do
+      source bundle/oh-my-zsh/plugins/$p/*.plugin.zsh
+    done
   else
     source bundle/oh-my-zsh/plugins/$plugin/*.plugin.zsh
   fi
