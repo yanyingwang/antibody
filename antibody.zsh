@@ -37,7 +37,17 @@ github()
 {
   plugin_dir_bundle="bundle/$plugin_dir"
   test -d bundle/$plugin_dir || git clone https://github.com/$plugin.git $plugin_dir_bundle
-  test -d $plugin_dir_bundle && source $plugin_dir_bundle/*.plugin.zsh
+
+  files=(
+  $plugin_dir_bundle/${plugin#*\/}.zsh
+  $plugin_dir_bundle/*.plugin.zsh
+  $plugin_dir_bundle/*.theme.zsh
+  )
+
+  for f in $files[@]
+  do
+    test -e $f && source  $f
+  done
 }
 
 oh-my-zsh()
