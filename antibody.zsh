@@ -23,7 +23,7 @@ list()
   echo $fg[green]"Plugins:"
   echo " |"
 
-  for d in $(ls bundle/)
+  for d in $(ls $apphome/bundle/)
   do
     echo " |- ${d/#*bundle\/}"
   done
@@ -35,8 +35,8 @@ list()
 
 github()
 {
-  plugin_dir_bundle="bundle/$plugin_dir"
-  test -d bundle/$plugin_dir || git clone https://github.com/$plugin.git $plugin_dir_bundle
+  plugin_dir_bundle="$apphome/bundle/$plugin_dir"
+  test -d $apphome/bundle/$plugin_dir || git clone https://github.com/$plugin.git $plugin_dir_bundle
 
   files=(
   "$plugin_dir_bundle/${plugin#*\/}.zsh"
@@ -52,13 +52,13 @@ github()
 
 oh-my-zsh()
 {
-  export ZSH=$PWD/bundle/oh-my-zsh
+  export ZSH=$apphome/bundle/oh-my-zsh
   source $ZSH/oh-my-zsh.sh
 
-  plugin_dir_oh="bundle/oh-my-zsh/Plugins"
-  theme_dir_oh="bundle/oh-my-zsh/themes"
+  plugin_dir_oh="$apphome/bundle/oh-my-zsh/Plugins"
+  theme_dir_oh="$apphome/bundle/oh-my-zsh/themes"
 
-  test -d bundle/oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git bundle/oh-my-zsh
+  test -d $apphome/bundle/oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git $apphome/bundle/oh-my-zsh
 
   if [[ $plugin = "theme" ]]
   then
@@ -71,17 +71,17 @@ oh-my-zsh()
   then
     for p in $@[3,$#]
     do
-      source bundle/oh-my-zsh/plugins/$p/*.plugin.zsh
+      source $apphome/bundle/oh-my-zsh/plugins/$p/*.plugin.zsh
     done
   else
-    source bundle/oh-my-zsh/plugins/$plugin/*.plugin.zsh
+    source $apphome/bundle/oh-my-zsh/plugins/$plugin/*.plugin.zsh
   fi
 }
 
 
 antibody()
 {
-  PWD=${${0:a:h}%bundle*}
+  #PWD=${${0:a:h}%bundle*}
   action=$1
   plugin=$2
   theme=$3
