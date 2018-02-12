@@ -40,13 +40,13 @@ github()
 
   files=(
   "$plugin_dir_bundle/${plugin#*\/}.zsh"
-  "$plugin_dir_bundle/*.plugin.zsh"
-  "$plugin_dir_bundle/*.theme.zsh"
+  "$plugin_dir_bundle/${plugin#*\/}.plugin.zsh"
+  "$plugin_dir_bundle/${plugin#*\/}.theme.zsh"
   )
 
   for f in $files[@]
   do
-    test -e $f && source  $f
+    test -e $f && source $f && break
   done
 }
 
