@@ -14,6 +14,11 @@ echo '$HOME/.zsh/zshrc' >> $HOME/.zshrc
 Open a new terminal and wait for a second, everything will be setted.
 
 
+# A Practical Usage
+my own zsh conf file is written by using this plugin manager, you can have a check at: https://github.com/yanyingwang/.zsh
+
+
+
 # Directory structure
 
 ```shell
