@@ -36,7 +36,7 @@ list()
 github()
 { 
   plugin_dir_bundle="$apphome/bundle/$plugin_dir"
-  test -d $apphome/bundle/$plugin_dir || git clone git@github.com:/$plugin.git $plugin_dir_bundle
+  test -d $apphome/bundle/$plugin_dir || git clone https://github.com/$plugin.git $plugin_dir_bundle
 
   files=(
   "$plugin_dir_bundle/${plugin#*\/}.zsh"
